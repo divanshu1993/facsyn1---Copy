@@ -1,0 +1,97 @@
+<template name="viewAuctionDetail">	
+{{ >navMenu }}
+
+<section id="hero" class="section">
+
+<div class="container-fluid">
+      
+    <div class="row row-offcanvas row-offcanvas-left">
+        
+        {{ >dashboardMenus }}
+        <div class="col-sm-5 col-md-5 main pageWidth">
+				<ul class="nav nav-tabs">
+   					 <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+					  <li><a data-toggle="tab" href="#menu1">Terms and Conditions</a></li>
+  				</ul>
+
+				<div class="tab-content">
+					<div id="home" class="tab-pane fade in active">
+					<h3>Description</h3>
+					<p>{{ auctionDetail.description }}</p>
+					</div>
+					<div id="menu1" class="tab-pane fade">
+					<h3>Terms & Conditions</h3>
+					<p>{{ auctionDetail.tc }}.</p>
+					</div>
+					
+				</div>	
+			
+		</div>
+		<div class="col-sm-5 col-md-5 main pageWidth">
+				<div class="" style="width:300px;height:400px;margin-top:17px;border:1px solid rgba(0,0,0,0.2)">
+						<div class="" style="width:300px;height:100px;border-bottom:1px solid rgba(0,0,0,0.2);padding:10px">
+							<p class="auction-condition">Item Condition :<span class="curent-bid"> {{ auctionDetail.condition }}</span></p>
+							<p class="auction-condition">Minimum Bid :<span class="curent-bid"> Rs {{ minimumBid }} </span></p>
+						</div>
+						<div class="" style="width:300px;height:80px;border-bottom:1px solid rgba(0,0,0,0.2);padding:10px">
+							<div class="info">
+								<p class="auction-condition">
+									{{ bidCount }} bids				
+								</p>
+								<p class="auction-condition">	
+									{{ remainingDays }} Days remaining		
+								</p>
+								
+
+							</div>
+						</div>
+						{{ #if supplierType 'S' }}
+						<div class="" style="width:300px;height:150px;;border-bottom:1px solid rgba(0,0,0,0.2);padding:10px">
+								<form action="viewAuctionDetail?id={{ auctionDetail._id }}" name="bidForm" >
+								<input type="text" name="bidAmount" value="" placeholder="Enter Amount" id="bidAmount" size=15/><br>
+								<input type="hidden" name="auctionId" value="{{ auctionDetail._id }}" /><br>
+								<input type="submit" name="button" value="Bid Now" class="bidButton" style=" width: 138px;"/>
+								</form>
+						</div>
+						{{ /if}}
+				</div>
+				
+				<hr>
+				<div style="margin-top:20px">
+					<h3>Recent Bids</h3>
+					<hr>
+					{{ amount }}
+					{{#each bidsDetails }}
+					<div class="" style="width:300px;height:180px;border:1px solid rgba(0,0,0,0.2);padding:10px">
+						<p>INR {{ amount }}</p> 
+						
+						<p><b>By:</b> {{ biddingByName }}</p>	
+						{{ #if supplierType 'M' }}
+						<p> 
+							{{ #if accepted = "N" }} 
+							<img src='images/correct_tick.png' style='width:40px;height:40px;' id="{{ _id }}" class="approve" >
+							{{/if}}
+							{{ #if accepted ="Y" }}  
+							<img src='images/cross_wrong.png' style='width:30px;height:30px;'  id="{{ _id }}" class="reject"  > 						
+							{{ /if }}
+							</p>
+							<b>Status:</b> {{status}}
+						{{/if}}
+ 
+
+					</div>
+					{{/each}} 
+					
+				</div>
+				
+			
+		</div>
+		
+	</div>
+</div>
+</section>
+<script>
+
+</script>
+
+</template>

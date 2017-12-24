@@ -1,0 +1,74 @@
+/* CSS declarations go here */
+
+.mgt10
+{
+	margin-top:10px;
+}
+h2{
+	font-size: 16px;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+ .post-meta {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    border-top: 1px solid #cdcdcd;
+    text-align: center;
+	height:75px;
+}
+
+ .post-meta li {
+    float: left;
+    width: 33.33333333%;
+    line-height: 1.25em;
+    padding: 5px 0;
+    font-size: 14px;
+	    border-right: 1px solid #cdcdcd;
+    background-color: whitesmoke;
+	height: 65px;
+}
+.btn-cyan {
+    background: #00acc1;
+	color:white;
+}
+
+.pd5
+{
+padding:5px;	
+}
+.auction-condition
+{
+	margin: 0;
+    font-size: 18px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+.curent-bidi-override{
+	    color: #a7c034;
+    font-weight: bold;
+}
+
+.auction-end icon{
+	    position: relative;
+    font-size: 30px;
+    width: 40px;
+    top: 3px;
+}
+.bidButton
+{
+	   color: #423338;
+    border-bottom: 2px solid #738424;
+    background-color: #a7c034;
+    padding-bottom: 1px;
+    border-color: #738424;
+}
+
+
+
+
+
+
+
+
+

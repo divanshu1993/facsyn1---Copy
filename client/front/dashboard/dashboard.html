@@ -1,0 +1,82 @@
+
+<template name="dashboard">	
+{{ >navMenu }}
+
+<section id="hero" class="section" >
+<div class="container-fluid">
+      
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+        {{ >dashboardMenus }}
+        
+        <div class="col-sm-9 col-md-10 main">
+          
+          <!--toggle sidebar button-->
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+          
+		  
+          <div class="row placeholders">
+           
+         
+
+             {{ #if supplierType 'S' }}
+            <div class="col-xs-12 col-sm-12 placeholder text-center">
+                {{> highchartsHelper chartId="test3" chartWidth="100%" charHeight="100%" chartObject=supplierBarChart}}
+              
+            </div>
+            {{ else }}
+             <div class="col-xs-8 col-sm-5 placeholder text-center">
+              
+               {{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=pieChart}}
+
+            </div>
+             <div class="col-xs-6 col-sm-7 placeholder text-center">
+                {{> highchartsHelper chartId="test2" chartWidth="100%" charHeight="100%" chartObject=lineChart}}
+              
+            </div>
+            {{/if}}
+
+
+
+          </div>
+          
+          <hr>
+
+    
+
+      </div><!--/row-->
+	</div>
+</div><!--/.container-->
+</section>
+
+
+
+<script>
+
+
+
+function check()
+{
+
+	Meteor.call("myMethod", function(error, result){
+	  if(error){
+		console.log(error.reason);
+		return;
+	  }
+	  // do something with result
+	});
+}
+var users=Meteor.users.find({ "_id":Meteor.userId() }).fetch()[0].profile;
+console.log(Meteor.userId()+"profile is :"+JSON.stringify(users));
+if(users.userType=="S")
+{
+    if(users.completed=="Y")
+      Router.go('dashboard');
+    else
+      Router.go('completeProfile');
+}
+</script>
+
+</template>

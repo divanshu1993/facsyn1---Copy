@@ -1,0 +1,75 @@
+<template name="register">
+{{ >navMenu }}
+<section id="contactarea" class="parallax section" style="background-image: url(http://themepush.com/demo/runcharity/assets/img/map.png);">
+<div class="wrapsection">
+	<div class="parallax-overlay" style="background-color: #1cbb9b;opacity:0.95;"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-sm-8">
+					<div class="maintitle">
+						<h3 class="section-title">Sign Up (Manufecturer) </h3>
+						<p class="lead">
+							Please fill the form to be member of facsyn family.
+						</p>
+						
+						<p class="lead">
+							if you are a supplier then <a href="supRegister" >click here</a>.
+						</p>
+						<p class="lead">
+							Already have an Account? <a href="login" >Login Here</a>
+						</p>
+						
+					</div>
+				</div>
+				<div class="col-sm-4">
+				<form id="contact" name="registerForm" method="post" class="text-left">
+					<fieldset>
+						<div class="row">
+							<div class="col-md-12 wow fadeIn animated animated" data-wow-delay="0.1s" data-wow-duration="2s">
+								<label for="name">Name<span class="required">*</span></label>
+								<input type="text" name="name" id="name" size="30" value="" required/>
+							</div>
+							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
+								<label for="email">Email<span class="required">*</span></label>
+								<input type="text" name="email" id="email" size="30" value="" required/>
+							</div>
+							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
+								<label for="password">Password<span class="required">*</span></label>
+								<input type="password" name="password" id="password" size="30" value="" required/>
+							</div>
+							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
+								<label for="phone">Phone<span class="required">*</span></label>
+								<input type="text" name="phone" id="phone" size="30" value="" required/>
+							</div>
+							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
+								<label for="package">Package Type<span class="required">*</span></label>
+								<select required name="package"><option value="0" >Silver(Free)</option><option value="1">Gold(Paid)</option></select>
+							</div>
+							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
+								<input type='checkbox' style='width:30px;float:left' name='tc' value='1' id='tc' /><p style='float:left;margin:14px'>I accept all the <a href='companytc'>Terms and Conditions.</a></p>							</div>
+							
+							
+						</div>
+						<div class="wow fadeIn animated" data-wow-delay="0.3" data-wow-duration="1.5s">
+							<input id="submit" type="submit" name="submit" value="Send"/>
+						</div>
+					</fieldset>
+				</form>
+				</div>
+				<div id="success">		
+					<p class="contactalert">
+						Your message was sent succssfully! We will be in touch as soon as We can.
+					</p>			
+				</div>
+				<div id="error">			
+					<p class="contactalert">
+						 Something went wrong, try refreshing and submitting the form again.
+					</p>			
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+</template>

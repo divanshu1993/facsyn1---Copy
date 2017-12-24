@@ -1,0 +1,95 @@
+<template name="completeProfile">	
+{{ >navMenu }}
+
+<section id="hero" class="section" >
+<div class="container-fluid">
+      
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+        <span style="pointer-events:none;opacity:0.8">{{ >dashboardMenus }}</span>
+        
+        <div class="col-sm-9 col-md-10 main">
+          
+          <!--toggle sidebar button-->
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+          
+					<div class="col-xs-6 wow">
+								<!--div class="active col-xs-6 wow well well-sm">
+									<b>Complete User Profile</b>
+								</div-->
+								<h2>
+									Subscribe Products
+								</h2>
+								<hr>
+								
+								<form>
+
+	<div class="col-xs-6 wow animated" style="visibility: visible;">
+
+											<div class="form-group">
+												<label for="companyName">Company Name</label>
+												<input type="text" class="form-control" id="companyName" name="companyName" placeholder="Company Name" required="">	
+											</div>
+											<div class="form-group">
+												<label for="address">Address</label>
+												<textarea  class="form-control" id="address" name="address" placeholder="Address" required=""></textarea>	
+											</div>
+											<div class="form-group">
+												<label for="alternateEmail">Alternate Email</label>
+												<input type="text" class="form-control" id="alternateEmail" name="alternateEmail" placeholder="Auction Title" required="">	
+											</div>
+											<div class="form-group">
+												<label for="alternateMobile">Alternate Mobile</label>
+												<input type="text" class="form-control" id="alternateMobile" name="alternateMobile" placeholder="Auction Title" required="">	
+											</div>
+									
+							
+                </div>
+
+
+
+							<div class="form-group" style="height:280px;border:1px dotted gray;overflow:auto">
+									{{#each productsCombo}}
+									<div class="form-group pd5">
+										<input type="checkbox" name="productId" value="{{ _id }}" /> {{name}}
+										<hr>
+									</div>
+									{{/each}}
+									
+							</div>
+							<div class="relative fullwidth col-xs-12">
+                            <!-- Send Button -->
+                            <button type="submit" id="submit" name="submit" class="form-btn semibold">Subscribe</button> 
+							</div><!-- End Bottom Submit -->
+							</form>
+							
+					</div>
+							
+          
+          <hr>
+
+    
+
+      </div><!--/row-->
+	</div>
+</div><!--/.container-->
+</section>
+<script>
+
+function check()
+{
+
+	Meteor.call("myMethod", function(error, result){
+	  if(error){
+		console.log(error.reason);
+		return;
+	  }
+	  // do something with result
+	});
+}
+
+</script>
+
+</template>

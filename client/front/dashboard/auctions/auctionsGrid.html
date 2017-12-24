@@ -1,0 +1,54 @@
+<template name="auctionsGrid">	
+{{ >navMenu }}
+
+<section id="hero" class="section">
+
+<div class="container-fluid">
+      
+		<div class="row row-offcanvas row-offcanvas-left">
+        {{ >dashboardMenus }}
+		
+		<div class="col-sm-9 col-md-9 ">
+			{{ #if auctionsCount '0' }}
+				{{#each auctionsResult}}
+				<div class="col-sm-6 col-md-6 mgt10">
+						<div class="box">
+							<h3>{{ auctionTitle }}</h3>
+							<hr>
+							<p>{{ description }}</p>
+							
+							<ul class="post-meta mgt10">
+							<li><strong>{{ bidCount }} </strong>Bids                                                                                                                    </li>
+							<li><strong class="capital_first">{{ condition }}</strong> Condition</li>
+							<li>Last Date:<strong>{{ endDate }}</strong> </li>
+							</ul>
+							<p class="mgt10">
+								<form name="bidForm" >
+									<span><button type="button" class="btn btn-cyan bidButton" id="bidButton"  onclick="viewAuctionDetail('{{_id}}')" value="">visit</button></span>
+								</form>
+							</p>
+						</div>
+				</div>
+				{{/each}}
+			{{ else }}
+
+			No Record Found
+
+			{{/if}}
+		 
+		 </div>
+		</div>
+</div>
+</section>
+<script>
+function goto(arg)
+{
+	location.href=arg;
+}
+function viewAuctionDetail(id)
+{
+	location.href='viewAuctionDetail?id='+id;
+}
+</script>
+
+</template>

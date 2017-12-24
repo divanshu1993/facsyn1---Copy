@@ -1,0 +1,135 @@
+<template name="addAuctions">	
+{{ >navMenu }}
+
+<section id="hero" class="section">
+
+
+<div class="container-fluid">
+      
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+        {{ >dashboardMenus }}
+        
+        <div class="col-sm-9 col-md-10 main">
+		<!--toggle sidebar button-->
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+		  
+          <div class="row placeholders">
+            <div class="inner contact">
+			<h3 style>Add Auction</h3>
+                <!-- Form Area -->
+                <div class="contact-form">
+                    <!-- Form -->
+                    <form id="auctionForm" method="post" action="#" name="auctionForm">
+                        <!-- Left Inputs -->
+                        <div class="col-xs-6 wow" >
+
+							<div class="form-group">
+								<label for="auctionTitle">Auction Name</label>
+								<input type="text" class="form-control" id="auctionTitle" name="auctionTitle" placeholder="Auction Title" required value='{{ auctionDetail.auctionTitle }}'>	
+							</div>
+							<div class="form-group">
+								<label for="auctionDescription" >Auction Description</label>
+								<textarea  class="form-control" required id="auctionDescription" name="auctionDescription" placeholder="Auction Description">{{ auctionDetail.description }}</textarea>	
+							</div>
+							
+							<div class="form-group">
+								<label for="category">Category</label>
+								<select name="category" id="category" class="form-control" required>
+								{{#each categoryCombo}}
+									<option value="{{id}}">{{name}}</option>
+								{{/each}}
+								</select>
+							</div>
+						
+                             <div class="form-group">
+
+							<label for="productName">Product Name</label>
+							<select name="productName" id="productName" class="form-control" required>
+								{{#each productsCombo}}
+									<option value="{{_id}}">{{name}}</option>
+								{{/each}}
+								</select>
+								
+						</div>
+						<div class="form-group">
+							<label for="quantity">Quantity</label>
+							<input type="text" class="form-control" id="quantity" placeholder="Quantity" value="{{ auctionDetail.quantity }}" >
+						</div>
+						
+							
+                        </div><!-- End Left Inputs -->
+                       
+					   <!-- Right Inputs -->
+                        <div class="col-xs-6 wow " >
+                           
+						<div class="form-group">
+							<label for="dateFrom">Date From</label>
+							<input type="datetime-local" class="form-control" id="dateFrom" placeholder="Date From" required value="{{ auctionDetail.dateFrom }}">
+						</div>
+						
+						<div class="form-group">
+							<label for="dateTo">Date To</label>
+							<input type="datetime-local" class="form-control" id="dateTo" placeholder="Date To" required value="{{ auctionDetail.dateTo }}">
+						</div>
+                         <div class="form-group">
+							<label for="status">Status</label>
+							<select name="status" id="status" class="form-control" required>
+								<option value="1" selected>Active</option>
+								<option value="2">Passive</option>
+								<option value="3">Stop</option>
+								</select>	
+						</div>
+						 	<div class="form-group">
+								<label for="status">Status</label>
+								<select name="condition" id="condition" class="form-control" required>
+									<option value="New" selected>New</option>
+									<option value="Old">Old</option>
+								</select>	
+							</div>
+
+							<div class="form-group">
+								<label for="termsAndConditions" >Terms and Conditions</label>
+								<textarea  class="form-control" required id="termsAndConditions" name="termsAndConditions" placeholder="Terms and Conditions">{{ auctionDetail.tc }}</textarea>	
+							</div>
+								
+							<div class="form-group">	
+								<input class="your-upload-class" type="file">
+{{#each theFiles}}
+       
+    <div>{{uploadedAt}}</div><div>{{original.name}}</div><div><a
+ href="{{url}}">link</a></div><div>{{#if 
+isUploaded}}uploaded{{/if}}</div><div><button 
+id="deleteFileButton">delete</button></div>
+        {{/each}}
+							</div>
+
+                        </div><!-- End Right Inputs -->
+					
+                        <!-- Bottom Submit -->
+                        <div class="relative fullwidth col-xs-12">
+                            <!-- Send Button -->
+							<input type="hidden" name="_id" value="{{ auctionDetail._id }}" />
+                            <button type="submit" id="submit" name="submit" class="form-btn semibold">Add</button> 
+                        </div><!-- End Bottom Submit -->
+                        <!-- Clear -->
+                        <div class="clear"></div>
+                    </form>
+
+                   
+
+                </div><!-- End Contact Form Area -->
+            </div><!-- End Inner -->
+			
+          </div>
+          
+          <hr>
+		</div>
+	</div>
+</div>
+</section>
+
+
+</template>

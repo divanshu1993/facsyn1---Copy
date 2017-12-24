@@ -1,0 +1,70 @@
+<template name="auctionsSummary">	
+{{ >navMenu }}
+
+<section id="hero" class="section">
+
+<div class="container-fluid">
+      
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+        {{ >dashboardMenus }}
+
+        <div class="col-sm-9 col-md-10 main">
+		<!--toggle sidebar button-->
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+		  
+		  <div class="col-sm-2"><h3 style>Auctions</h3></div><div class="col-sm-2"><a href="addAuctions" ><button class="btn"  value="" >Add Auction</button></a></div>
+		  <hr>
+          <table class="table">
+    <thead>
+        <tr>
+            <th>Auction Title</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Added Date</th>
+            <th>Date From - To Date</th>
+            <th>Status</th>
+			<th>Actions</th>
+			
+        </tr>
+    </thead>
+    <tbody>
+        {{ #if auctionsCount '0' }}
+            {{#each auctionsResult}}
+            <tr>
+                <td><a href="viewAuctionDetail?id={{ _id }}" >{{ auctionTitle }}</a></td>
+                <td>{{ productName }}</td>
+                <td>{{ categoryName }}</td>
+                <td>{{ createdAt}}</td>
+                <td> {{ startDate  }} - {{ endDate }} </td>
+                <td> {{ status}}</td>
+                <td>
+                    <a href="addAuctions?id={{ _id }}" class="blue-text">Edit</a>  |
+                    <a href="" class="teal-text deleteAuction" id="{{ _id }}" >Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+		{{else}}
+            <tr>
+                <td colspan=20 >No Auction has been added till now.Please click on add auction to add new.</td> 
+            </tr>
+        {{/if}}
+
+    </tbody>
+</table>
+          
+          <hr>
+		</div>
+	</div>
+</div>
+</section>
+<script>
+function goto(arg)
+{
+	location.href=arg;
+}
+</script>
+
+</template>

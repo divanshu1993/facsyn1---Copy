@@ -1,0 +1,34 @@
+<template name="login">
+{{ >navMenu }}
+<section id="contactarea" class="parallax section" style="background-image: url(http://themepush.com/demo/runcharity/assets/img/map.png);">
+<div class="wrapsection">
+	<div class="parallax-overlay" style="background-color: #1cbb9b;opacity:0.95;"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-sm-4">
+				<form id="contact" name="loginForm" method="post" class="text-left">
+					<fieldset>
+						<div class="row">
+							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
+								<label for="email">Email<span class="required">*</span></label>
+								<input type="text" name="email" id="email" size="30" value="" required/>
+							</div>
+							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
+								<label for="password">Password<span class="required">*</span></label>
+								<input type="password" name="password" id="password" size="30" value="" required/>
+							</div>
+						</div>
+						<div class="wow fadeIn animated" data-wow-delay="0.3" data-wow-duration="1.5s">
+							<input id="submit" type="submit" name="submit" value="Send" class="loginButton" />
+						</div>
+					</fieldset>
+				</form>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+</template>
