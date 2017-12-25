@@ -12,9 +12,7 @@ Meteor.methods({
     },
     saveAuctions:(data)=>{
 	   console.log("Auction Id : "+data._id);
-	   var oldDateFrom=Auctions.find({"_id":data._id}).fetch()[0].dateFrom;
-	   var oldDateTo=Auctions.find({"_id":data._id}).fetch()[0].dateTo;
-
+	   
 	   
 	   if(data._id=="")
 	   {
@@ -33,6 +31,8 @@ Meteor.methods({
 		});  
 	   }
 	   else{
+		var oldDateFrom=Auctions.find({"_id":data._id}).fetch()[0].dateFrom;
+	   var oldDateTo=Auctions.find({"_id":data._id}).fetch()[0].dateTo;
 
 			Auctions.update(data._id, {
       			$set: 
