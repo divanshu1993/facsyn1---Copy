@@ -29,11 +29,11 @@
 		</div>
 		<div class="col-sm-5 col-md-5 main pageWidth">
 				<div class="" style="width:300px;height:400px;margin-top:17px;border:1px solid rgba(0,0,0,0.2)">
-						<div class="" style="width:300px;height:100px;border-bottom:1px solid rgba(0,0,0,0.2);padding:10px">
+						<div class="" style="width:300px;border-bottom:1px solid rgba(0,0,0,0.2);padding:10px">
 							<p class="auction-condition">Item Condition :<span class="curent-bid"> {{ auctionDetail.condition }}</span></p>
 							<p class="auction-condition">Minimum Bid :<span class="curent-bid"> Rs {{ minimumBid }} </span></p>
 						</div>
-						<div class="" style="width:300px;height:80px;border-bottom:1px solid rgba(0,0,0,0.2);padding:10px">
+						<div class="" style="width:300px;border-bottom:1px solid rgba(0,0,0,0.2);padding:10px">
 							<div class="info">
 								<p class="auction-condition">
 									{{ bidCount }} bids				
@@ -75,9 +75,9 @@
 							<img src='images/cross_wrong.png' style='width:30px;height:30px;'  id="{{ _id }}" class="reject"  > 						
 							{{ /if }}
 							</p>
-							<b>Status:</b> {{status}}
+							
 						{{/if}}
- 
+ 						<b>Status:</b> {{status}}
 
 					</div>
 					{{/each}} 

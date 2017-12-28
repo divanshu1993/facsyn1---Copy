@@ -20,7 +20,8 @@ Template.register.events({
 		  phone: event.target.phone.value,
 		  userType: "M",
 		  approved: "N",
-		  completed:"N"
+		  completed:"N",
+          packageType:event.target.package.value
 	 }
 	},function(err){
 
@@ -67,7 +68,9 @@ Template.supRegister.events({
 		  phone: event.target.phone.value,
 		  userType: "S",
 		  approved: "N",
-		  completed:"N"
+		  completed:"N",
+          packageType:event.target.package.value
+
 	 }
 	});
   }
@@ -209,7 +212,12 @@ Template.dashboardMenus.helpers({
   supplierType: function (name) {
 	var supplierType=Meteor.users.find({ "_id":Meteor.userId() }).fetch()[0].profile.userType;
     return name === supplierType;
+  },
+  userName: function () {
+	var name=Meteor.users.find({ "_id":Meteor.userId() }).fetch()[0].profile.name;
+    return name ;
   }
+  
 });
 Template.dashboard.helpers({
   supplierType: function (name) {

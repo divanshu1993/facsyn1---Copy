@@ -1,14 +1,16 @@
 <template name="dashboardMenus">	
 		<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
-           
+          <div> 
+			  <img src="images/User.png" /><br> <b>Welcome {{userName}}</b><hr>
+		  </div>
         <ul class="nav nav-sidebar">
-        		<li class="menu active" id="dashboard"><a href="dashboard">Overview</a></li>
+        		<li class="menu active" id="dashboard"><a href="dashboard"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
 				{{ #if supplierType 'M' }}
-						<li class="menu" id="auctions"><a href="auctionsSummary">Auctions</a></li>
+						<li class="menu" id="auctions"><a href="auctionsSummary"><span class="glyphicon glyphicon-tag"></span> Auctions</a></li>
 				{{ /if }}
 				{{ #if supplierType 'S' }}
-						<li class="menu" id="auctionGrid"><a href="auctionsGrid">Auctions grids</a></li>
-						<li class="menu" id="subscriptions" ><a href="subscriptions">Subscriptions</a></li>
+						<li class="menu" id="auctionGrid"><a href="auctionsGrid"><span class="glyphicon glyphicon-tag"></span> Auctions</a></li>
+						<li class="menu" id="subscriptions" ><a href="subscriptions"><span class="glyphicon glyphicon-file"></span> Subscriptions</a></li>
 				{{ /if }}
         </ul>
         </div><!--/span-->
