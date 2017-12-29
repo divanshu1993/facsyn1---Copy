@@ -437,7 +437,7 @@ var result="1";
 	var auctioninsights="";
 	var i=0;
   _.each(_.values(groupedDates), function(auctions) {
-        let pp= _.findWhere(products, {id:auctions[0]});
+        let pp= _.findWhere(products, {_id:auctions[0]});
         console.log( pp.name+"products : "+JSON.stringify(pp));
 		
         var arr2=[];
@@ -498,7 +498,7 @@ var result="1";
 	var auctioninsights="";
 	var i=0;
   _.each(_.values(groupedDates), function(auctions) {
-        let pp= _.findWhere(products, {id:auctions[0]});
+        let pp= _.findWhere(products, {_id:auctions[0]});
         console.log( pp.name+"products : "+JSON.stringify(pp));
 		
         var arr2=[];
@@ -556,7 +556,7 @@ var result="1";
 	var auctioninsights="";
 	var i=0;
   _.each(_.values(groupedDates), function(auctions) {
-        let pp= _.findWhere(products, {id:auctions[0]});
+        let pp= _.findWhere(products, {_id:auctions[0]});
         console.log( pp.name+"products : "+JSON.stringify(pp));
 		
         var arr2=[];
