@@ -39,7 +39,7 @@
 								<label for="category">Category</label>
 								<select name="category" id="category" class="form-control" required>
 								{{#each categoryCombo}}
-									<option value="{{id}}">{{name}}</option>
+									<option value="{{_id}}">{{name}}</option>
 								{{/each}}
 								</select>
 							</div>
@@ -48,9 +48,7 @@
 
 							<label for="productName">Product Name</label>
 							<select name="productName" id="productName" class="form-control" required>
-								{{#each productsCombo}}
-									<option value="{{_id}}">{{name}}</option>
-								{{/each}}
+								<option value="-1">Select</option>
 								</select>
 								
 						</div>

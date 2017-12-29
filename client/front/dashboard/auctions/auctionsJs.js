@@ -2,7 +2,15 @@ import { Template } from 'meteor/templating';
 
 
 Template.addAuctions.events({
-	
+	'change #category'(event)
+	{
+		var jsonData={};
+		jsonData['categoryId']=document.getElementById("category").value;
+		var productsCombo=Meteor.call("getProductsCombo",jsonData,function(error,data){
+					document.getElementById("productName").innerHTML=data;
+		});
+
+	},
   'submit form'(event) {
     // Prevent default browser form submit
     event.preventDefault();

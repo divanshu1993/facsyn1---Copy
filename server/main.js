@@ -186,11 +186,21 @@ Meteor.methods({
 	getCurrentSubscriptions:()=>{
 		var productsData=Products.find().fetch();
 		var ps=productsSubscriptions.find().fecth();
-		Console.log("ProductsData : "+productsData);
-		Console.log("productsSubscriptions : "+ps);
+		
 		var combosData={};
 		combosData["productsCombo"]=productsData;
 		return combosData;
+	},
+	getProductsCombo:(jsonData)=>
+	{
+		var categoryId=jsonData['categoryId'];
+		var productsArr=Products.find({"categoryId":categoryId}).fetch();
+		var productCombo="<option value=-1 >Select</option>";
+		for(var i in productsArr)
+		{
+			productCombo+="<option value='"+productsArr[i]['_id']+"'>"+productsArr[i]['name']+"</option>";
+		}
+		return productCombo;
 	},
 	getAuctions: (fromWhere)=>{
 		console.log("from where is "+fromWhere);
@@ -213,15 +223,15 @@ Meteor.methods({
 		var catId=_.pluck(auctionsArray,'category');
 		var productId=_.pluck(auctionsArray,'productName');
 		
-		var categoryName=Category.find({"id": {$in:catId}}).fetch();
+		var categoryName=Category.find({"_id": {$in:catId}}).fetch();
 		var productsName=Products.find({"_id": {$in:productId}}).fetch();
 		
 		console.log("1======"+productsName)
 		for (var index in auctionsArray) {
 			
-			let singleCategory = _.findWhere(categoryName, {id: auctionsArray[index]['category']});
+			let singleCategory = _.findWhere(categoryName, {_id: auctionsArray[index]['category']});
 			auctionsArray[index]['categoryName']=singleCategory? singleCategory['name']:"-";
-			let productId1 = _.findWhere(productsName, {id: auctionsArray[index]['productName']});
+			let productId1 = _.findWhere(productsName, {_id: auctionsArray[index]['productName']});
 			console.log(+"2======"+productId1);
 			auctionsArray[index]['productName']=productId1? productId1['name']:"-";
 			if(auctionsArray[index]['status']=="1")
