@@ -605,12 +605,3 @@ function dateDiff2(date1,date2,interval) {
         default: return undefined;
     }
 }
-
-Template.dashboardMenus.events({
-'click .menu':function(event)
-{
-    this.addClass("active");
-    //alert(JSON.stringify(event));
-    //event.target.class="active";
-}
-});

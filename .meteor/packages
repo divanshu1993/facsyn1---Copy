@@ -33,3 +33,4 @@ email
 cfs:filesystem
 cfs:standard-packages
 cfs:gridfs
+fortawesome:fontawesome
