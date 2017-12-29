@@ -38,6 +38,7 @@
 							<div class="form-group">
 								<label for="category">Category</label>
 								<select name="category" id="category" class="form-control" required>
+									<option value="-1">Select</option>
 								{{#each categoryCombo}}
 									<option value="{{_id}}">{{name}}</option>
 								{{/each}}
