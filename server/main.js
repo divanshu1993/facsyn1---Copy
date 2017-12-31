@@ -202,6 +202,27 @@ Meteor.methods({
 		}
 		return productCombo;
 	},
+	contactUsForm:(jsonData)=>
+	{
+		var name=jsonData['name'];
+		var email=jsonData['email'];
+		var phone=jsonData['phone'];
+		var message=jsonData['message'];
+console.log("Before starting mail");
+		var email = {
+						to: "facsyn@gmail.com",
+						cc:"dcdivanshu@gmail.com",
+						bcc:"dcdivanshu@gmail.com",
+						from: email,
+						replyTo:email ,
+						subject: "Contact us Request",
+						text: "Dear Admin, There is a request from someone with below detail from contact us form. Please review this and reply accordingly. <br>Name :  "+name+"  --- email :  "+email+"  --- phone : "+phone+"  --- message : "+message
+					};
+					Email.send(email);
+console.log("after  starting mail");
+
+		
+	},
 	getAuctions: (fromWhere)=>{
 		console.log("from where is "+fromWhere);
 
