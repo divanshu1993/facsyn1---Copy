@@ -267,7 +267,12 @@ console.log("after  starting mail");
 			auctionsArray[index]['bidCount']=Biddings.find({"auctionId":auctionsArray[index]['_id']}).count();
 		}
 		return  auctionsArray;
-    }
+    },
+	showSupplierDetail:(jsonData)=>{
+			var supplierId=jsonData['supplierId'];
+			var supplierDetail=Meteor.users.find({"_id":supplierId}).fetch();
+			return supplierDetail[0];
+		}
 	
 });
 

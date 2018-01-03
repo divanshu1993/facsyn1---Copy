@@ -65,7 +65,7 @@
 					<div class="" style="width:300px;height:180px;border:1px solid rgba(0,0,0,0.2);padding:10px">
 						<p>INR {{ amount }}</p> 
 						
-						<p><b>By:</b> {{ biddingByName }}</p>	
+						<p><b>By:</b><a href='supplierDetail?id={{bidBy}}&fromAuction={{auctionDetail._id}}' class="supplierId"> {{ biddingByName }}	</a></p>
 						{{ #if supplierType 'M' }}
 						<p> 
 							{{ #if accepted = "N" }} 

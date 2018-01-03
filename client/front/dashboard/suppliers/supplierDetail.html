@@ -1,0 +1,44 @@
+<template name="supplierDetail">	
+{{ >navMenu }}
+
+<section id="hero" class="section">
+
+
+<div class="container-fluid">
+      
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+        {{ >dashboardMenus }}
+        
+        <div class="col-sm-9 col-md-10 main">
+		<!--toggle sidebar button-->
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+		  
+          <div class="row placeholders">
+                <b>Supplier Detail ({{ supplierDetails.name }})</b> 
+          </div>
+          <hr>
+          <div class="row placeholders">
+            Name : {{ supplierDetails.name }} 
+          </div>
+          <hr>
+          <div class="row placeholders">
+            Email : {{ supplierDetails.email }} 
+          </div>
+          <hr>
+          <div class="row placeholders">
+          Phone : {{ supplierDetails.phone }} 
+          </div>
+          <hr>
+           <div class="row placeholders">
+             <a class="button" href="viewAuctionDetail?id={{ supplierDetails.fromAuction }}"  >Back</a>
+           </div>
+		</div>
+	</div>
+</div>
+</section>
+
+
+</template>
