@@ -14,7 +14,7 @@ var id= Router.current().params.query.id;
 
 Template.supplierDetail.helpers({
   supplierDetails: function (name) {
-        var supplierData=Session.get("supplierData");
+        var supplierData=Session.get("supplierEmail");
         var supplierProfile=Session.get("supplierProfile");
         var data={};
         data["email"]=supplierData;
