@@ -240,20 +240,22 @@ console.log("after  starting mail");
 		else{
 			var auctionsArray=Auctions.find({"addedBy":Meteor.userId()}).fetch();
 		}
-		
+		console.log("Auctino Array is ::: "+auctionsArray);
 		var catId=_.pluck(auctionsArray,'category');
 		var productId=_.pluck(auctionsArray,'productName');
 		
 		var categoryName=Category.find({"_id": {$in:catId}}).fetch();
 		var productsName=Products.find({"_id": {$in:productId}}).fetch();
 		
-		console.log("1======"+productsName)
+		console.log("1======"+categoryName)
 		for (var index in auctionsArray) {
 			
 			let singleCategory = _.findWhere(categoryName, {_id: auctionsArray[index]['category']});
+			console.log("a----"+singleCategory);
 			auctionsArray[index]['categoryName']=singleCategory? singleCategory['name']:"-";
+			console.log("b----"+JSON.stringify(productsName)+"------------"+auctionsArray[index]['productName']);
 			let productId1 = _.findWhere(productsName, {_id: auctionsArray[index]['productName']});
-			console.log(+"2======"+productId1);
+			console.log("2======"+productId1);
 			auctionsArray[index]['productName']=productId1? productId1['name']:"-";
 			if(auctionsArray[index]['status']=="1")
 				auctionsArray[index]['status']="Active";
@@ -266,6 +268,7 @@ console.log("after  starting mail");
 			//auctionsArray[index]['minimumBid']=Biddings.find({"auctionId":auctionsArray[index]['_id']},{limit: 1, sort: {amount: 0}}).fetch()[0].amount;;
 			auctionsArray[index]['bidCount']=Biddings.find({"auctionId":auctionsArray[index]['_id']}).count();
 		}
+		console.log("Last auction data is :: "+JSON.stringify(auctionsArray));
 		return  auctionsArray;
     },
 	showSupplierDetail:(jsonData)=>{

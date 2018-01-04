@@ -154,9 +154,9 @@ Template.subscriptions.rendered = function() {
 			console.log("2222");
 			for(var i=0;i<psArr.length;i++)
 			{
-				console.log("1 : "+products[index]['id']+"--- "+psArr[i]);
+				console.log("1 : "+products[index]['_id']+"--- "+psArr[i]);
 				
-				if(products[index]['id']==psArr[i])
+				if(products[index]['_id']==psArr[i])
 				{
 					products[index]['checked']="checked";
 				}
