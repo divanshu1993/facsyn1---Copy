@@ -275,8 +275,37 @@ console.log("after  starting mail");
 			var supplierId=jsonData['supplierId'];
 			var supplierDetail=Meteor.users.find({"_id":supplierId}).fetch();
 			return supplierDetail[0];
-		}
-	
+	},
+	getUsersDetail:(id)=>
+	{
+		var userDetails=Meteor.users.find({"_id":id}).fetch();
+		return userDetails;
+	},
+	saveUserDetail:(jsonData)=>
+	{
+		var _id=jsonData._id;
+		var name=jsonData.name;
+		var phone=jsonData.phone;
+		var address=jsonData.address;
+		var packageType=jsonData.packageType;
+		var companyName=jsonData.companyName;
+		var alternateEmail=jsonData.alternateEmail;
+		var alternateMobile=jsonData.alternateMobile;
+		Meteor.users.update({_id:Meteor.userId()}, {
+      			$set: 
+				{
+					"profile.name":name,
+					"profile.phone":phone,
+					"address":address,
+					"profile.packageType":packageType,
+					"companyName":companyName,
+					"alternateEmail":alternateEmail,
+					"alternateMobile":alternateMobile
+				}
+    		});
+
+
+	}
 });
 
 

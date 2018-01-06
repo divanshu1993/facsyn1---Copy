@@ -1,7 +1,7 @@
 <template name="dashboardMenus">	
 		<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
           <div> 
-			  <img src="images/User.png" /><br> <b>Welcome {{userName}}</b><hr>
+			  <img src="images/User.png" /><br> <b>Welcome {{userName}} <a href='editUsers?userId={{ userId }}' class='editProfile'><img src='/images/edit1.png' width=20px height="20px"></a></b><hr>
 		  </div>
         <ul class="nav nav-sidebar">
         		<li class="menu active" id="dashboard"><a href="dashboard"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>

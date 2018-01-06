@@ -1,0 +1,90 @@
+<template name="editUsers">	
+{{ >navMenu }}
+
+<section id="hero" class="section" >
+<div class="container-fluid">
+      
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+        <span >{{ >dashboardMenus }}</span>
+        
+        <div class="col-sm-9 col-md-10 main">
+          <!--toggle sidebar button-->
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+          
+					<div class="col-xs-6 wow">
+								<!--div class="active col-xs-6 wow well well-sm">
+									<b>Complete User Profile</b>
+								</div-->
+								<h2>
+									Edit Profile
+								</h2>
+								<hr>
+								
+								<form name="userDetailForm" class="userDetailForm" id="userDetailForm" action="" method="POST">
+
+
+<div class="col-xs-6 wow animated" style="visibility: visible;">
+											<div class="form-group">
+												<label for="name">Name</label>
+												<input type="text" class="form-control" id="name" name="name" placeholder="Name" required="" value="{{ userDetail.profile.name }}">	
+											</div>
+                                            <div class="form-group">
+												<label for="address">Address</label>
+												<textarea  class="form-control" id="address" name="address" placeholder="Address" required="">{{ userDetail.address }}</textarea>	
+											</div>
+											<div class="form-group">
+												<label for="phone">Phone</label>
+												<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required="" value="{{ userDetail.profile.phone }}">	
+											</div>
+											<div class="form-group">
+												<label for="packageType">Package Type</label>
+												<input type="text" class="form-control" id="packageType" name="packageType" disabled placeholder="Package Type" required="" value="{{ userDetail.profile.packageType }}">	
+											</div>
+									
+							
+                </div>
+
+	            <div class="col-xs-6 wow animated" style="visibility: visible;">
+
+											<div class="form-group">
+												<label for="companyName">Company Name</label>
+												<input type="text" class="form-control" id="companyName" name="companyName" placeholder="Company Name" required="" value="{{ userDetail.companyName }}">	
+											</div>
+											
+											<div class="form-group">
+												<label for="alternateEmail">Alternate Email</label>
+												<input type="text" class="form-control" id="alternateEmail" name="alternateEmail" placeholder="Alternate Email" required="" value="{{ userDetail.alternateEmail }}">	
+											</div>
+											<div class="form-group">
+												<label for="alternateMobile">Alternate Mobile</label>
+												<input type="text" class="form-control" id="alternateMobile" name="alternateMobile" placeholder="Alternate Mobile" required="" value="{{ userDetail.alternateMobile }}">	
+											</div>
+									
+							
+                </div>
+
+
+						
+							<div class="relative fullwidth col-xs-12">
+                            <!-- Send Button -->
+                            <input type="hidden" name="_id" value="{{ userDetail._id }}">
+                            <button type="submit" id="submit" name="submit" class="form-btn semibold">Save</button> 
+							</div><!-- End Bottom Submit -->
+							</form>
+							
+					</div>
+							
+          
+          <hr>
+
+    
+
+      </div><!--/row-->
+	</div>
+</div><!--/.container-->
+</section>
+
+</template>
