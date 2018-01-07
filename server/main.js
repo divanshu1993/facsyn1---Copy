@@ -62,7 +62,7 @@ Meteor.methods({
 						from: 'support@facsyn.com',
 						replyTo:'support@facsyn.com' ,
 						subject: "Auction Time Changed",
-						html: "Dear User<br> Auction Time has been changed.Please login to facsyn system to check new timings.<br>Regards"
+						html:makeBoundryOfMail("<b>Auction Time Changed</b><hr>Dear User<br><br> Auction Time has been changed.Please login to facsyn system to check new timings.<br>Regards")
 					};
 					Email.send(email);
 					//console.log("Email sent");
@@ -144,16 +144,14 @@ Meteor.methods({
 
 			var auctionData=Auctions.findOne({'_id':data.auctionId});
 			var bidBy=auctionData.addedBy;
-			console.log("bidding Data : "+JSON.stringify(auctionData)+bidBy);
 			var emails=Meteor.users.findOne({'_id':bidBy}).emails[0].address;;
-			console.log("EMail id of manufecturer who posted this bid."+emails);
 			var email = {
 				to: emails,
 				from: 'support@facsyn.com',
 				replyTo: emails,
 				subject: "Bid Added on Auction",
-				html: "Hello User<br> Please login into the system and check bid added on the Auction.<br>Based on the "
-				+"bid amount you can accept or reject that bid.<br><br>Regards"
+				html: makeBoundryOfMail("<b>Bidding on Auction</b><hr>Hello User<br><br> Please login into the system and check bid added on the Auction.<br>Based on the "
+				+"bid amount you can accept or reject that bid.<br><br>Regards")
         	};
 
 			Email.send(email);
@@ -208,7 +206,7 @@ Meteor.methods({
 		var email=jsonData['email'];
 		var phone=jsonData['phone'];
 		var message=jsonData['message'];
-console.log("Before starting mail");
+		console.log("Before starting mail");
 		var email = {
 						to: "facsyn@gmail.com",
 						cc:"dcdivanshu@gmail.com",
@@ -216,10 +214,9 @@ console.log("Before starting mail");
 						from: email,
 						replyTo:email ,
 						subject: "Contact us Request",
-						html: "Dear Admin, There is a request from someone with below detail from contact us form. Please review this and reply accordingly. <br>Name :  "+name+"  --- email :  "+email+"  --- phone : "+phone+"  --- message : "+message
+						html:makeBoundryOfMail( "<b>Contact Request</b><hr>Dear Admin,<br><br> There is a request from someone with below detail from contact us form. Please review this and reply accordingly. <br>Name :  "+name+"  --- email :  "+email+"  --- phone : "+phone+"  --- message : "+message)
 					};
 					Email.send(email);
-console.log("after  starting mail");
 
 		
 	},
@@ -306,4 +303,10 @@ console.log("after  starting mail");
 });
 
 
+function makeBoundryOfMail(htmlText)
+{
+    var resultedHtml="<html><body><div style='border:5px solid #d2d2d2;padding:20px'>"+htmlText+"</div></body></html>";
+    return resultedHtml;
+    
+}
 
