@@ -14,19 +14,24 @@
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
           </p>
           
-					<div class="col-xs-6 wow">
+					<div class="col-xs-12 wow">
 								<!--div class="active col-xs-6 wow well well-sm">
 									<b>Complete User Profile</b>
 								</div-->
 								<h2>
-									Edit Profile
+								<img src="/images/back-button.png" width=30px height="30px" />	User Profile
 								</h2>
 								<hr>
-								
-								<form name="userDetailForm" class="userDetailForm" id="userDetailForm" action="" method="POST">
+							<br>
+                            <h2>
+								<img src="/images/userProfile.png" width=30px height="30px" /> General Detail
+								</h2>
+								<hr>
+
+				<form name="userDetailForm" class="userDetailForm" id="userDetailForm" action="#" method="POST">
 
 
-<div class="col-xs-6 wow animated" style="visibility: visible;">
+                <div class="col-xs-6 wow animated" style="visibility: visible;">
 											<div class="form-group">
 												<label for="name">Name</label>
 												<input type="text" class="form-control" id="name" name="name" placeholder="Name" required="" value="{{ userDetail.profile.name }}">	
@@ -39,10 +44,7 @@
 												<label for="phone">Phone</label>
 												<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required="" value="{{ userDetail.profile.phone }}">	
 											</div>
-											<div class="form-group">
-												<label for="packageType">Package Type</label>
-								                <select class="form-control" disabled required name="packageType"><option value="0" >Silver(Free)</option><option value="1">Gold(Paid)</option></select>
-											</div>
+										
 									
 							
                 </div>
@@ -62,20 +64,48 @@
 												<label for="alternateMobile">Alternate Mobile</label>
 												<input type="text" class="form-control" id="alternateMobile" name="alternateMobile" placeholder="Alternate Mobile" required="" value="{{ userDetail.alternateMobile }}">	
 											</div>
+							
+                </div>
+							<div class="relative fullwidth col-xs-12">
+                                <!-- Send Button -->
+                                <input type="hidden" name="_id" value="{{ userDetail._id }}">
+                                <button type="submit" id="submit" name="submit" style='float:left' class="form-btn semibold">Save</button> 
+
+							</div><!-- End Bottom Submit -->
+	</form>
+</div>
+
+
+<div class="col-xs-12 wow">
+    <br><br>
+                <h2>
+				Password
+				</h2>
+				<hr>
+
+
+                <form name="userPasswordForm" class="userPasswordForm" id="userPasswordForm" action="#" method="POST">
+                <div class="col-xs-6 wow animated" style="visibility: visible;">
+											<div class="form-group">
+												<label for="oldpassword">Old Password</label>
+												<input type="oldpassword" class="form-control" id="oldpassword" name="oldpassword" placeholder="Old Password"  value="">	
+											</div>
+                                            <div class="form-group">
+												<label for="password">Password</label>
+												<input type="password" class="form-control" id="password" name="password" placeholder="password"  value="">	
+											</div>
 									
 							
                 </div>
+                <div class="relative fullwidth col-xs-12">
+                                <!-- Send Button -->
+                                <input type="hidden" name="_id" value="{{ userDetail._id }}">
+                                <button type="submit" name="submit" style='float:left' class="form-btn semibold">Save</button> 
+							</div><!-- End Bottom Submit --> 
 
-
-						
-							<div class="relative fullwidth col-xs-12">
-                            <!-- Send Button -->
-                            <input type="hidden" name="_id" value="{{ userDetail._id }}">
-                            <button type="submit" id="submit" name="submit" class="form-btn semibold">Save</button> 
-							</div><!-- End Bottom Submit -->
-							</form>
+				</form>	
 							
-					</div>
+			</div>
 							
           
           <hr>

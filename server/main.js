@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import '/imports/startup/server/index';
 import '../collections/data';
-
+import { Accounts } from 'meteor/accounts-base'
 
 
 Meteor.methods({
@@ -287,7 +287,6 @@ console.log("after  starting mail");
 		var name=jsonData.name;
 		var phone=jsonData.phone;
 		var address=jsonData.address;
-		var packageType=jsonData.packageType;
 		var companyName=jsonData.companyName;
 		var alternateEmail=jsonData.alternateEmail;
 		var alternateMobile=jsonData.alternateMobile;
@@ -297,15 +296,13 @@ console.log("after  starting mail");
 					"profile.name":name,
 					"profile.phone":phone,
 					"address":address,
-					"profile.packageType":packageType,
 					"companyName":companyName,
 					"alternateEmail":alternateEmail,
 					"alternateMobile":alternateMobile
 				}
     		});
+	},
 
-
-	}
 });
 
 
