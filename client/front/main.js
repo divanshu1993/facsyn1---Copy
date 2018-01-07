@@ -25,7 +25,7 @@ Template.register.events({
 	 }
 	},function(err){
 
-		alert(err);
+		console.log(err);
 	});
 
   }
