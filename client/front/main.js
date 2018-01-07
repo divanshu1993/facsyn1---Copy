@@ -254,23 +254,7 @@ Template.navMenu.events({
 			Router.go('login');
 
 		});
-	},
-    'click .email':function()
-    {
-        alert(1);
-
-        var email = {
-            to: 'dcdivanshu@gmail.com',
-            from: 'abc@failtracker.com',
-            replyTo: 'dcdivanshu@gmail.com',
-            subject: "test email",
-            text: "hello lover boy"
-        };
-        Meteor.call('sendEmail',null, email);
-      
-    }
-
-
+	}
 });
 
 
