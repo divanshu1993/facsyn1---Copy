@@ -282,7 +282,8 @@ Template.viewAuctionDetail.helpers({
         var yyyy = today.getFullYear(); if(dd<10){ dd='0'+dd; } if(mm<10){ mm='0'+mm; } 
         var today = yyyy+"-"+mm+'-'+dd; 
         
-        var days=dateDiff2((dd.split(" ")[0]),(auctionEndDate.split(" ")[0]),"days");
+        //var days=dateDiff2((dd.split(" ")[0]),(auctionEndDate.split(" ")[0]),"days");
+        var days=daydiff(moment().format('YYYY-MM-DD'),(auctionEndDate.split("T")[0]));
         console.log("days are::: "+days);
         return days;
   },
@@ -583,6 +584,8 @@ function parseDate(date) {
 }
 
 function daydiff(startDate, endDate) {
+    console.log("Start Date :::: "+startDate);
+    console.log("end Date :::: "+endDate);
     var millisecondsPerDay = 24 * 60 * 60 * 1000;
     return (parseDate(endDate) - parseDate(startDate)) / millisecondsPerDay;
 }
