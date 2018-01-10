@@ -5,7 +5,7 @@ import './main.html';
 Template.register.events({
 
   // handle the form submission
-  'submit form': function(event) {
+  'submit #registerForm': function(event) {
 
     // stop the form from submitting
     event.preventDefault();
@@ -39,7 +39,7 @@ Template.register.events({
 
 Template.login.events({
 
-  'submit form': function(event) {
+  'submit #loginForm': function(event) {
 
 		event.preventDefault();
 		let email=event.target.email.value;
