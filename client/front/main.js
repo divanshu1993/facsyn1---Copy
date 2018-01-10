@@ -24,7 +24,12 @@ Template.register.events({
           packageType:event.target.package.value
 	 }
 	},function(err){
-
+	        if(err)
+				Router.go('home#register');
+			else
+			{				
+				Router.go('dashboard');	
+			}
 		console.log(err);
 	});
 
@@ -262,7 +267,7 @@ Template.navMenu.events({
 		
 		Meteor.logout(function(){ 
 			Session.keys = {};
-			Router.go('login');
+			Router.go('home');
 
 		});
 	}
