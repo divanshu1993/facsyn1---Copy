@@ -172,7 +172,7 @@ Meteor.methods({
 		console.log("update bidding details"+JSON.stringify(data));
 
 	},
-    getCombos:()=>{
+    getCombos:(auctionId)=>{
 		var productsData=Products.find().fetch();
 		var categoryData=Category.find().fetch();
 		

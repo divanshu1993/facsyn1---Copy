@@ -18,7 +18,7 @@ Template.register.events({
 	  profile:{
 		  name: event.target.name.value,		
 		  phone: event.target.phone.value,
-		  userType: "M",
+		  userType: event.target.userType.value,
 		  approved: "N",
 		  completed:"N",
           packageType:event.target.package.value
@@ -119,10 +119,11 @@ Template.auctionsGrid.helpers({
 
 
 
-Template.addAuctions.rendered = function() {       
-    Meteor.call('getCombos', function(error, list){
+Template.addAuctions.rendered = function() { 
+    var auctionId=Router.current().params.query.id;      
+    Meteor.call('getCombos',auctionId, function(error, list){
         if(error)
-            alert(error.reason);
+            console.log(error.reason);
 		 Session.set('productsCombo', list['productsCombo']);
         Session.set('categoryCombo', list['categoryCombo']);
 
@@ -133,7 +134,7 @@ Template.addAuctions.rendered = function() {
 Template.completeProfile.rendered = function() {       
     Meteor.call('getCombos', function(error, list){
         if(error)
-            alert(error.reason);
+            console.log(error.reason);
 		
         Session.set('productsCombo', list['productsCombo']);
         Session.set('categoryCombo', list['categoryCombo']);
@@ -181,6 +182,16 @@ Template.addAuctions.helpers({
 		delete Session.keys['categoryCombo']
         return data;
 	},
+    selectedProducts:function()
+    {
+        var auctionId=Router.current().params.query.id;
+       return  Auctions.find({"_id":auctionId}).fetch()[0].productName;
+    },
+    selectedCategory:function()
+    {
+       var auctionId=Router.current().params.query.id;
+       return  Auctions.find({"_id":auctionId}).fetch()[0].category;
+    },
     theFiles: function () {
     return YourFileCollection.find();
   }
@@ -576,6 +587,11 @@ var result="1";
 
 
 });
+
+ Template.addAuctions.registerHelper('equals', function (a, b) {
+      return a === b;
+    });
+
 
 function parseDate(date) {
     var result = new Date(date);

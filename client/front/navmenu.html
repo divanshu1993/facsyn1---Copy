@@ -21,7 +21,7 @@
 	<ul class="nav navbar-nav">
 		{{ #if currentUser }}
 		<li>
-		<a href="home#hero">Home</a>
+		<a href="home#hero" id="">Home</a>
 		</li>
 		<li>
 		<a href="home#about">About</a>
@@ -30,11 +30,11 @@
 		<a href="home#gallery">Gallery</a>
 		</li>
 		<li>
-		<a href="register?type=M">Signup</a>
+		<a href="home#register" >Signup</a>
 		</li>
 		
 		<li>
-		<a href="home#contactarea">Contact</a>
+		<a href="home#contactarea"  onclick="window.scroll(0,100);">Contact</a>
 		</li>
 	{{ else }}
 		<li>

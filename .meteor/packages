@@ -35,3 +35,4 @@ cfs:standard-packages
 cfs:gridfs
 fortawesome:fontawesome
 mrt:lightbox2
+raix:handlebar-helpers

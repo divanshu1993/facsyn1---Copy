@@ -1,58 +1,58 @@
 <template name="register">
-{{ >navMenu }}
-<section id="contactarea" class="parallax section" style="background-image: url(http://themepush.com/demo/runcharity/assets/img/map.png);">
+<section id="register" class="parallax section" style="background-image:url('images/1.jpg');">
 <div class="wrapsection">
-	<div class="parallax-overlay" style="background-color: #1cbb9b;opacity:0.95;"></div>
+	<div class="parallax-overlay" style="background-color: #01b0d1;opacity:0.9;"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="col-sm-8">
+				<div class="col-sm-8" style='margin-top:-70px;padding:30px;border-right:1px solid white;height:600px'>
 					<div class="maintitle">
-						<h3 class="section-title">Sign Up (Manufacturer) </h3>
+							<h3>Login Here.</h3>
 						<p class="lead">
-							Please fill the form to be member of facsyn family.
-						</p>
-						
-						<p class="lead">
-							if you are a supplier then <a href="supRegister" >click here</a>.
-						</p>
-						<p class="lead">
-							Already have an Account? <a href="login" >Login Here</a>
+							 {{ > login }} 
 						</p>
 						
 					</div>
 				</div>
-				<div class="col-sm-4">
-				<form id="contact" name="registerForm" method="post" class="text-left">
+				<div class="col-sm-4" style="margin-top: -75px;">
+					
+				<form id="registerForm" name="registerForm" method="post" class="text-left">
 					<fieldset>
 						<div class="row">
+							
 							<div class="col-md-12 wow fadeIn animated animated" data-wow-delay="0.1s" data-wow-duration="2s">
+								<h3 class="section-title">Sign Up</h3><hr><br>
 								<label for="name">Name<span class="required">*</span></label>
-								<input type="text" name="name" id="name" size="30" value="" required/>
+								<input type="text" name="name"  size="30" value="" required class="form-control" />
 							</div>
 							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
 								<label for="email">Email<span class="required">*</span></label>
-								<input type="text" name="email" id="email" size="30" value="" required/>
+								<input type="text" name="email" size="30" value="" required class="form-control" />
 							</div>
 							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
 								<label for="password">Password<span class="required">*</span></label>
-								<input type="password" name="password" id="password" size="30" value="" required/>
+								<input type="password" name="password"  size="30" value="" required class="form-control" />
 							</div>
 							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
 								<label for="phone">Phone<span class="required">*</span></label>
-								<input type="text" name="phone" id="phone" size="30" value="" required/>
+								<input type="text" name="phone"  size="30" value="" required class="form-control" />
 							</div>
 							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
 								<label for="package">Package Type<span class="required">*</span></label>
-								<select required name="package"><option value="0" >Silver(Free)</option><option value="1">Gold(Paid)</option></select>
+								<select required name="package" class="form-control"><option value="0" >Silver(Free)</option><option value="1">Gold(Paid)</option></select>
 							</div>
 							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
-								<input type='checkbox' style='width:30px;float:left' name='tc' value='1' id='tc' required /><p style='float:left;margin:14px'>I accept all the <a href='companytc'>Terms and Conditions.</a></p>							</div>
+								<label for="userType">User Type<span class="required">*</span></label>
+								<select required name="userType" class="form-control"><option value="S" >Supplier</option><option value="M">Manufacturer</option></select>
+							</div>
+							<div class="col-md-12 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
+								<input type='checkbox' class="form-control" style='width:30px;float:left' name='tc' value='1' id='tc' required /><p style='float:left;margin:14px'>I accept all the <a href='companytc'>Terms and Conditions.</a></p>						
+							</div>
 							
 							
 						</div>
 						<div class="wow fadeIn animated" data-wow-delay="0.3" data-wow-duration="1.5s">
-							<input id="submit" type="submit" name="submit" value="Send"/>
+							<input type="submit" name="submit" value="Register" class="form-control"/>
 						</div>
 					</fieldset>
 				</form>
