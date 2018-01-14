@@ -33,7 +33,7 @@ Template.addAuctions.events({
 	jsonData['createdAt']=new Date();
 
 	Meteor.call('saveAuctions',jsonData);//Calling on server to insert Auctions Details
-	location.href='auctionsSummary';
+		location.href='auctionsSummary';
   },
 
 	'change .your-upload-class': function (event, template) {

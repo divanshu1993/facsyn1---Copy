@@ -192,11 +192,14 @@ Meteor.methods({
 	getProductsCombo:(jsonData)=>
 	{
 		var categoryId=jsonData['categoryId'];
+		var existingProductId=jsonData['productName'];
 		var productsArr=Products.find({"categoryId":categoryId}).fetch();
 		var productCombo="<option value=-1 >Select</option>";
 		for(var i in productsArr)
 		{
-			productCombo+="<option value='"+productsArr[i]['_id']+"'>"+productsArr[i]['name']+"</option>";
+			console.log("existing id is::: "+existingProductId);
+			console.log(" next is :: "+productsArr[i]['_id']);
+			productCombo+="<option value='"+productsArr[i]['_id']+"' "+((productsArr[i]['_id']==existingProductId)?"selected":"")+" >"+productsArr[i]['name']+"</option>";
 		}
 		return productCombo;
 	},

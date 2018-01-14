@@ -37,10 +37,17 @@
 							
 							<div class="form-group">
 								<label for="category">Category</label>
+									
 								<select name="category" id="category" class="form-control" required>
+								
 									<option value="-1">Select</option>
 								{{#each categoryCombo}}
+								asd:{{ $eq selectedCategory _id }} 
+									{{ #if $eq _id selectedCategory }} 
+									<option value="{{_id}}" selected>{{name}}</option>
+									{{ else }}
 									<option value="{{_id}}" >{{name}}</option>
+									{{ /if }}
 								{{/each}}
 								</select>
 							</div>

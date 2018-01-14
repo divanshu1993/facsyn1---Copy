@@ -125,12 +125,27 @@ Template.auctionsGrid.helpers({
 
 
 Template.addAuctions.rendered = function() { 
-    var auctionId=Router.current().params.query.id;      
+    var auctionId=Router.current().params.query.id;     
+
     Meteor.call('getCombos',auctionId, function(error, list){
         if(error)
             console.log(error.reason);
 		 Session.set('productsCombo', list['productsCombo']);
         Session.set('categoryCombo', list['categoryCombo']);
+        setTimeout(function(){ 
+        var jsonData={};
+		jsonData['categoryId']=document.getElementById("category").value;
+        var productName=Auctions.find({"_id":auctionId}).fetch()[0].productName;
+        jsonData['productName']=productName;
+		var productsCombo=Meteor.call("getProductsCombo",jsonData,function(error,data){
+					document.getElementById("productName").innerHTML=data;
+		});
+
+
+
+         },1000);
+        
+
 
     });
 }
@@ -592,11 +607,6 @@ var result="1";
 
 
 });
-
- Template.addAuctions.registerHelper('equals', function (a, b) {
-      return a === b;
-    });
-
 
 function parseDate(date) {
     var result = new Date(date);
