@@ -27,6 +27,7 @@ Meteor.methods({
 		  description:data.description,
 		  condition:data.condition,
 		  tc:data.termsAndConditions,
+		  weight:data.weight,
 		  addedBy:Meteor.userId()
 		});  
 	   }
@@ -46,6 +47,7 @@ Meteor.methods({
 					status:data.status,
 					description:data.description,
 					condition:data.condition,
+					weight:data.weight,
 					tc:data.termsAndConditions
 				}
     		});

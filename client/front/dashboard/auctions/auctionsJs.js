@@ -29,6 +29,7 @@ Template.addAuctions.events({
 	jsonData['createdBy']=Meteor.userId();
 	jsonData['condition']=event.target.condition.value;
 	jsonData['_id']=event.target._id.value;
+	jsonData['weight']=event.target.weight.value;
 	
 	jsonData['createdAt']=new Date();
 
