@@ -219,7 +219,7 @@ Meteor.methods({
 						from: email,
 						replyTo:email ,
 						subject: "Contact us Request",
-						html:makeBoundryOfMail( "<b>Contact Request</b><hr>Dear Admin,<br><br> There is a request from someone with below detail from contact us form. Please review this and reply accordingly. <br>Name :  "+name+"  --- email :  "+email+"  --- phone : "+phone+"  --- message : "+message)
+						html:makeBoundryOfMail( "<b>Contact Request</b><hr>Dear Admin,<br><br> There is a request from someone with below detail from contact us form. Please review this and reply accordingly. <br>Name :  "+name+"  <br> email :  "+email+"  <br> phone : "+phone+"  <br> message : "+message)
 					};
 					Email.send(email);
 

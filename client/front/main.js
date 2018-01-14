@@ -373,7 +373,7 @@ Template.subscriptions.events({
 });
 Template.facsynBody.events({
 
-'submit #contact'(event)
+'submit #contactForm'(event)
 {
     var name=event.target.name.value;
     var email=event.target.email.value;
@@ -384,8 +384,9 @@ Template.facsynBody.events({
     jsonData['email']=email;
     jsonData['phone']=phone;
     jsonData['message']=message;
-    console.log("before caling server mail method");
-    Meteor.call("contactUsForm",jsonData);
+    console.log("before caling server mail method ");
+    Meteor.call("contactUsForm",jsonData);   
+
 
 }
     
